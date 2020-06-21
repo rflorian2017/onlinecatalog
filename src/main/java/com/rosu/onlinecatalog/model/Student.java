@@ -14,7 +14,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int student_id;
+    private int studentId;
 
     private String firstName;
     private String lastName;
