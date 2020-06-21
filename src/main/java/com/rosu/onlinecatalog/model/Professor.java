@@ -13,11 +13,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Student {
+public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int student_id;
+    private int professor_id;
 
     private String firstName;
     private String lastName;
