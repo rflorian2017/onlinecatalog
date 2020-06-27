@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +22,15 @@ public class Student {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private SchoolGroup schoolGroup;
+
+    @ManyToMany
+    @JoinTable(name = "student_grades", joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "grade_id"))
+    private List<Grade> grades;
+
+    @ManyToMany
+    @JoinTable(name = "student_discipline", joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "discipline_id"))
+    private List<Discipline> disciplines;
 
 }

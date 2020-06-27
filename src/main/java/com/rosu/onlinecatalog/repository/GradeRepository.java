@@ -1,8 +1,7 @@
 package com.rosu.onlinecatalog.repository;
 
 import com.rosu.onlinecatalog.model.Grade;
-import com.rosu.onlinecatalog.model.Student;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface GradeRepository extends CrudRepository<Grade, Integer> {
+public interface GradeRepository extends JpaRepository<Grade, Integer> {
 }

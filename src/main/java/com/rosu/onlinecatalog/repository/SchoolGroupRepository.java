@@ -1,8 +1,7 @@
 package com.rosu.onlinecatalog.repository;
 
 import com.rosu.onlinecatalog.model.SchoolGroup;
-import com.rosu.onlinecatalog.model.Student;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SchoolGroupRepository extends CrudRepository<SchoolGroup, Integer> {
+public interface SchoolGroupRepository extends JpaRepository<SchoolGroup, Integer> {
 }

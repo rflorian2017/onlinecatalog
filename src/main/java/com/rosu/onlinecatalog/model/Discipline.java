@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -21,4 +18,10 @@ public class Discipline {
 
     @OneToMany(mappedBy = "discipline" , cascade = CascadeType.ALL)
     private List<Professor> professors;
+
+    @ManyToMany(mappedBy = "disciplines")
+    private List<Student> students;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private SchoolGroup schoolGroup;
 }

@@ -1,8 +1,7 @@
 package com.rosu.onlinecatalog.repository;
 
 import com.rosu.onlinecatalog.model.Discipline;
-import com.rosu.onlinecatalog.model.Student;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DisciplineRepository extends CrudRepository<Discipline, String> {
+public interface DisciplineRepository extends JpaRepository<Discipline, String> {
 }
