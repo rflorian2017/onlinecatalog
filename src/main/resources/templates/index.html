@@ -14,9 +14,23 @@
 
     <meta charset="UTF-8">
     <title>Online Catalog</title>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a th:href="@{/}">Home</a></li>
+                <li>
+                    <a th:href="@{/allstudents}">
+                        Students
+                    </a>
+                </li>
+                <li><a th:href="@{/allprofessors}">Professors</a></li>
+            </ul>
+        </div>
+    </nav>
 </head>
 <body>
-<h1>It works</h1>
-<a th:href="@{/allstudents}">Students</a>
+<h1>Online catalog</h1>
 </body>
 </html>

@@ -1,38 +1,37 @@
 package com.rosu.onlinecatalog.service;
 
-import com.rosu.onlinecatalog.model.Student;
-import com.rosu.onlinecatalog.repository.StudentRepository;
+import com.rosu.onlinecatalog.model.Professor;
+import com.rosu.onlinecatalog.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
-@Service("IStudentService")
-public class StudentService {
+@Service("IProfessorService")
+public class ProfessorService {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private ProfessorRepository professorRepository;
 
-    public List<Student> findAll() {
-        return studentRepository.findAll();
+    public List<Professor> findAll() {
+        return professorRepository.findAll();
     }
 
-    public void save(Student student) {
-        studentRepository.save(student);
+    public void save(Professor professor) {
+        professorRepository.save(professor);
     }
 
-    public Student findById(Integer id) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent()) {
-            return student.get();
+    public Professor findById(Integer id) {
+        Optional<Professor> professor = professorRepository.findById(id);
+        if (professor.isPresent()) {
+            return professor.get();
         }
 
         return null;
     }
 
     public void deleteById(Integer id) {
-       studentRepository.deleteById(id);
+       professorRepository.deleteById(id);
     }
 }

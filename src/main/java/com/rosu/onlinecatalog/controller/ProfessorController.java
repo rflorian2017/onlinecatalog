@@ -1,7 +1,7 @@
 package com.rosu.onlinecatalog.controller;
 
-import com.rosu.onlinecatalog.model.Student;
-import com.rosu.onlinecatalog.service.StudentService;
+import com.rosu.onlinecatalog.model.Professor;
+import com.rosu.onlinecatalog.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,60 +13,59 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class StudentController {
+public class ProfessorController {
 
     @Autowired
-    private StudentService studentService;
+    private ProfessorService professorService;
 
-    @GetMapping("allstudents")
-    public String showAllStudents(Model model) {
+    @GetMapping("allprofessors")
+    public String showAllProfessors(Model model) {
 
-        List<Student> studentList = studentService.findAll();
-        model.addAttribute("students", studentList);
+        List<Professor> professors = professorService.findAll();
+        model.addAttribute("professors", professors);
 
-        return "student/showallstudents";
+        return "professor/showallprofessors";
     }
 
-    @GetMapping("/addstudent")
-    public String addStudent(Model model) {
-        model.addAttribute("student", new Student()); // initial bind with the form, to say to the webpage
+    @GetMapping("/addprofessor")
+    public String addProfessor(Model model) {
+        model.addAttribute("professor", new Professor()); // initial bind with the form, to say to the webpage
         // what is the type of student th:object
 
-        return "student/addstudent";
+        return "professor/addprofessor";
     }
 
-    @PostMapping("/addstudent")
-    public String addStudent(@ModelAttribute Student student) {
+    @PostMapping("/addprofessor")
+    public String addProfessor(@ModelAttribute Professor professor) {
 //        System.out.println(student);
-        studentService.save(student);
-        return "redirect:/allstudents";
+        professorService.save(professor);
+        return "redirect:/allprofessors";
         //TODO: show in same page on the left all students, on the right add a new student
     }
 
-    @GetMapping("/editstudent/{id}")
-    public String editStudent(Model model, @PathVariable Integer id) {
-        Student student = studentService.findById(id);
+    @GetMapping("/editprofessor/{id}")
+    public String editProfessor(Model model, @PathVariable Integer id) {
+        Professor professor = professorService.findById(id);
 
-        model.addAttribute("student", student); // initial bind with the form, to say to the webpage
+        model.addAttribute("professor", professor); // initial bind with the form, to say to the webpage
         // what is the type of student th:object
 
-        return "student/editstudent";
+        return "professor/editprofessor";
     }
 
-    @PostMapping("/editstudent/{id}")
-    public String editStudent(@ModelAttribute Student student, @PathVariable Integer id) {
-        System.out.println(student);
+    @PostMapping("/editprofessor/{id}")
+    public String editProfessor(@ModelAttribute Professor professor, @PathVariable Integer id) {
 
-        studentService.save(student); // save it again. SAVE acts as UPDATE
+        professorService.save(professor); // save it again. SAVE acts as UPDATE
 //        return "redirect:/editstudent/"+id;
-        return "redirect:/allstudents";
+        return "redirect:/allprofessors";
         //TODO: show in same page on the left all students, on the right add a new student
     }
 
-    @GetMapping("/deletestudent/{id}")
-    public String deleteStudent(@PathVariable Integer id) {
-        studentService.deleteById(id);
+    @GetMapping("/deleteprofessor/{id}")
+    public String deleteProfessor(@PathVariable Integer id) {
+        professorService.deleteById(id);
 
-        return "redirect:/allstudents"; // forward
+        return "redirect:/allprofessors"; // forward
     }
 }
