@@ -24,13 +24,7 @@ public class StudentController {
         List<Student> studentList = studentService.findAll();
         model.addAttribute("students", studentList);
 
-        return "showallstudents";
-    }
-
-    @GetMapping("/")
-    public String index() {
-
-        return "index";
+        return "student/showallstudents";
     }
 
     @GetMapping("/addstudent")
@@ -38,14 +32,14 @@ public class StudentController {
         model.addAttribute("student", new Student()); // initial bind with the form, to say to the webpage
         // what is the type of student th:object
 
-        return "addstudent";
+        return "student/addstudent";
     }
 
     @PostMapping("/addstudent")
     public String addStudent(@ModelAttribute Student student) {
 //        System.out.println(student);
         studentService.save(student);
-        return "redirect:/addstudent";
+        return "redirect:/allstudents";
         //TODO: show in same page on the left all students, on the right add a new student
     }
 
@@ -56,17 +50,14 @@ public class StudentController {
         model.addAttribute("student", student); // initial bind with the form, to say to the webpage
         // what is the type of student th:object
 
-        return "editstudent";
+        return "student/editstudent";
     }
 
     @PostMapping("/editstudent/{id}")
     public String editStudent(@ModelAttribute Student student, @PathVariable Integer id) {
-        Student database_student = studentService.findById(id); // ti be able to update that id, get it from database
-        database_student.setLastName(student.getLastName()); // update fields
-        database_student.setFirstName(student.getFirstName());
+        System.out.println(student);
 
-        System.out.println(database_student);
-        studentService.save(database_student); // save it again. SAVE acts as UPDATE
+        studentService.save(student); // save it again. SAVE acts as UPDATE
 //        return "redirect:/editstudent/"+id;
         return "redirect:/allstudents";
         //TODO: show in same page on the left all students, on the right add a new student

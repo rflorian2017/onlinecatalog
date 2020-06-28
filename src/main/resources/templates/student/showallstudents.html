@@ -13,14 +13,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
     <title>Students view</title>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a th:href="@{/}">Home</a></li>
+                <li>
+                    <a th:href="@{/addstudent}">
+                        <i class="small material-icons">add</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </head>
 <body>
-<h1>Students</h1>
-<a th:href="@{/}">Home</a>
-<a th:href="@{/addstudent}">
-    <i class="small material-icons">add</i>
-</a>
 <div class="container">
+    <h1>Students</h1>
     <table>
         <thead>
         <tr>

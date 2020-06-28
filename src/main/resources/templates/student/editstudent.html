@@ -23,6 +23,7 @@
             <p>Please fill in this form to create a student.</p>
             <hr>
             <div class="row">
+                <input th:field="*{studentId}" type="hidden">
                 <div class="input-field col s12">
                     <label for="first_name"><b>First Name</b></label>
                     <input th:field="*{firstName}" id="first_name" type="text" placeholder="First Name" required>
