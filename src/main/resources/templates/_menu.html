@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a th:href="@{/}">Home</a></li>
+            <li>
+                <a th:href="@{/allstudents}">
+                    Students
+                </a>
+            </li>
+            <li><a th:href="@{/allprofessors}">Professors</a></li>
+        </ul>
+    </div>
+</nav>
