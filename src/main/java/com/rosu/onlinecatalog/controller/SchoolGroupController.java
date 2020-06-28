@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -41,5 +42,11 @@ public class SchoolGroupController {
         schoolGroupService.save(schoolGroup);
         return "redirect:/allschoolgroups";
         //TODO: show in same page on the left all students, on the right add a new student
+    }
+
+    @GetMapping("/group/{id}/students")
+    public String viewStudentsInGroup(Model model, @PathVariable Integer id) {
+        model.addAttribute("students", schoolGroupService.findStudentsByGroup(id));
+        return "schoolgroup/viewstudents";
     }
 }

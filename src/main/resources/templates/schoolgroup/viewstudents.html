@@ -12,47 +12,44 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>School group view</title>
+    <title>School group student view</title>
 
     <nav th:insert="_menu.html::menu_nav">
     </nav>
 </head>
 <body>
 <div class="container">
-        <h1>School groups</s></h1>
-    <a th:href="@{/addschoolgroup}">
+    <h1>Students</h1>
+    <a th:href="@{/addstudent}">
         <i class="small material-icons">add</i>
     </a>
     <table>
         <thead>
         <tr>
             <td>
-                Group id
+                Student id
             </td>
             <td>
-                Group name
+                Student first name
             </td>
             <td>
-                Group year
+                Student last name
             </td>
             <td>Action</td>
         </tr>
         </thead>
-        <tbody th:each="s : ${schoolgroups}">
+        <tbody th:each="s : ${students}">
 
         <tr>
-            <td th:text="${s.groupId}"></td>
-            <td th:text="${s.groupName}"></td>
-            <td th:text="${s.groupYear}"></td>
+            <td th:text="${s.studentId}"></td>
+            <td th:text="${s.firstName}"></td>
+            <td th:text="${s.lastName}"></td>
             <td>
-                <a th:href="@{/editschoolgroup/{id}(id = ${s.groupId})}">
+                <a th:href="@{/editstudent/{id}(id = ${s.studentId})}">
                     <i class="small material-icons">create</i>
                 </a>
-                <a th:href="@{/deleteschoolgroup/{id}(id = ${s.groupId})}">
+                <a th:href="@{/deletestudent/{id}(id = ${s.studentId})}">
                     <i class="small material-icons">delete</i>
-                </a>
-                <a th:href="@{/group/{id}/students(id = ${s.groupId})}">
-                    <i class="small material-icons">center_focus_strong</i>
                 </a>
             </td>
         </tr>

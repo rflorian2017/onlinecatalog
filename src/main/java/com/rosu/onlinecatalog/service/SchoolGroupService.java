@@ -24,4 +24,9 @@ public class SchoolGroupService {
     public void save(SchoolGroup schoolGroup) {
         schoolGroupRepository.save(schoolGroup);
     }
+
+    public List<Student> findStudentsByGroup(Integer id) {
+        //TODO: try catch / check if present
+        return schoolGroupRepository.findById(id).get().getStudents();
+    }
 }

@@ -53,6 +53,7 @@ public class StudentController {
         Student student = studentService.findById(id);
 
         model.addAttribute("student", student); // initial bind with the form, to say to the webpage
+        model.addAttribute("schoolgroups", schoolGroupService.findAll());
         // what is the type of student th:object
 
         return "student/editstudent";
