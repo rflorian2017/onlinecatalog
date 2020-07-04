@@ -22,4 +22,7 @@ public class User {
     private String emailAddress;
 
     private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Role role;
 }

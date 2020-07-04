@@ -1,6 +1,6 @@
 <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Logo</a>
+        <a class="right" th:href="@{/logout}">Logout</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a th:href="@{/}">Home</a></li>
             <li>
@@ -10,7 +10,6 @@
             </li>
             <li><a th:href="@{/allprofessors}">Professors</a></li>
             <li><a th:href="@{/allschoolgroups}">School groups</a></li>
-
         </ul>
     </div>
 </nav>
