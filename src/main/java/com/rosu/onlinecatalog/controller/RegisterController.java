@@ -51,7 +51,7 @@ public class RegisterController {
         user.setPassword(encoder().encode(password));
         user.setUsername(username);
 
-
+        userRepository.save(user);
         PendingUser pendingUser = new PendingUser();
         String activationCode = randomStringGenerator.getAlphaNumericString(20);
         pendingUser.setActivationCode(activationCode);
@@ -69,7 +69,7 @@ public class RegisterController {
         Optional<PendingUser> optional = pendingUserRepository.findByActivationCode(activationCode);
         if(optional.isPresent()) {
             PendingUser pendingUser = optional.get();
-            userRepository.save(pendingUser.getUser());
+
             pendingUserRepository.delete(pendingUser);
         }
         return "security/login";
