@@ -2,6 +2,7 @@ package com.rosu.onlinecatalog;
 
 import com.rosu.onlinecatalog.model.Student;
 import com.rosu.onlinecatalog.repository.StudentRepository;
+import com.rosu.onlinecatalog.service.SendGridEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,12 +14,16 @@ public class OnlinecatalogApplication implements CommandLineRunner{
 	@Autowired
 	private StudentRepository studentRepository;
 
+	@Autowired
+	private SendGridEmailService sendGridEmailService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(OnlinecatalogApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", "buhaidebalta.15@gmail.com", "Hello from the other side!", "Hello!");
 //		Student student = new Student();
 //		student.setFirstName("John");
 //		student.setLastName("Doe");
