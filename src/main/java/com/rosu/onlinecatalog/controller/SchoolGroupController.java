@@ -25,7 +25,7 @@ public class SchoolGroupController {
 
         model.addAttribute("schoolgroups", schoolGroups);
 
-        return "/schoolgroup/showallschoolgroups";
+        return "schoolgroup/showallschoolgroups";
      }
 
     @GetMapping("/addschoolgroup")
