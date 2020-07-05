@@ -67,6 +67,7 @@ public class RegisterController {
 
     @GetMapping("/userValidation")
     public String validateUser(String activationCode) {
+        System.out.println(activationCode);
         Optional<PendingUser> optional = pendingUserRepository.findByActivationCode(activationCode);
         if(optional.isPresent()) {
 
