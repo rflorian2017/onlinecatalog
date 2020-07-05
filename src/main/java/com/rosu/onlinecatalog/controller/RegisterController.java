@@ -69,7 +69,9 @@ public class RegisterController {
     public String validateUser(String activationCode) {
         Optional<PendingUser> optional = pendingUserRepository.findByActivationCode(activationCode);
         if(optional.isPresent()) {
+
             PendingUser pendingUser = optional.get();
+            System.out.println(pendingUser.getActivationCode());
 
             pendingUserRepository.delete(pendingUser);
         }
