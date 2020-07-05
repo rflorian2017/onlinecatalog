@@ -58,8 +58,9 @@ public class RegisterController {
         sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com",
                 user.getEmailAddress(), "Please confirm account",
                 randomStringGenerator.linkCreator(activationCode,
-                        "https://online-school-catalog-rs.herokuapp.com/"));
+                        "https://online-school-catalog-rs.herokuapp.com"));
         pendingUser.setUser(user);
+        pendingUserRepository.save(pendingUser);
 
         return "redirect:/login";
     }
