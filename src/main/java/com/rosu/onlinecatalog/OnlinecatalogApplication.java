@@ -2,6 +2,7 @@ package com.rosu.onlinecatalog;
 
 import com.rosu.onlinecatalog.model.Student;
 import com.rosu.onlinecatalog.repository.StudentRepository;
+import com.rosu.onlinecatalog.repository.UserRepository;
 import com.rosu.onlinecatalog.service.SendGridEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,21 +10,30 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OnlinecatalogApplication implements CommandLineRunner{
+public class OnlinecatalogApplication implements CommandLineRunner {
 
-	@Autowired
-	private StudentRepository studentRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
-	@Autowired
-	private SendGridEmailService sendGridEmailService;
+    @Autowired
+    private UserRepository userRepository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(OnlinecatalogApplication.class, args);
-	}
+    @Autowired
+    private SendGridEmailService sendGridEmailService;
 
-	@Override
-	public void run(String... args) throws Exception {
-		//sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", "buhaidebalta.15@gmail.com", "Hello from the other side!", "Hello!");
+    public static void main(String[] args) {
+        SpringApplication.run(OnlinecatalogApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+
+        try {
+            userRepository.deleteById(1);
+        } catch (Exception ex) {
+
+        }
+        //sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", "buhaidebalta.15@gmail.com", "Hello from the other side!", "Hello!");
 //		Student student = new Student();
 //		student.setFirstName("John");
 //		student.setLastName("Doe");
@@ -46,5 +56,5 @@ public class OnlinecatalogApplication implements CommandLineRunner{
 //			System.out.println(s.getStudentId() + ". " + s.getFirstName() + " " + s.getLastName());
 //		}
 
-	}
+    }
 }
