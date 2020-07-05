@@ -23,7 +23,7 @@ public class OnlinecatalogApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", "buhaidebalta.15@gmail.com", "Hello from the other side!", "Hello!");
+		//sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", "buhaidebalta.15@gmail.com", "Hello from the other side!", "Hello!");
 //		Student student = new Student();
 //		student.setFirstName("John");
 //		student.setLastName("Doe");
