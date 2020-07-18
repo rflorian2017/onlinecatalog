@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Controller
@@ -45,7 +46,9 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(String username, String password, String emailAddress) {
+    public String registerUser(HttpServletRequest request, String username, String password, String emailAddress) {
+        String validationUrl = "https://" + request.getServerName() + request.getContextPath();
+
         User user = new User();
         user.setEmailAddress(emailAddress);
         user.setPassword(encoder().encode(password));
@@ -58,7 +61,7 @@ public class RegisterController {
         sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com",
                 user.getEmailAddress(), "Please confirm account",
                 randomStringGenerator.linkCreator(activationCode,
-                        "https://online-school-catalog-rs.herokuapp.com"));
+                        validationUrl));
         pendingUser.setUser(user);
         pendingUserRepository.save(pendingUser);
 
