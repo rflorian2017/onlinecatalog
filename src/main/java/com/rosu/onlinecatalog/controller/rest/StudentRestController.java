@@ -31,9 +31,15 @@ public class StudentRestController {
         return ResponseEntity.ok(student);
     }
 
-    @PatchMapping("/student/edit")
-    public ResponseEntity<Student> editStudent(@RequestBody Student student) {
-        studentRepository.save(student);
-        return ResponseEntity.ok(student);
+    @DeleteMapping("/student/delete/{id}")
+    public ResponseEntity editStudent(@PathVariable Integer id) {
+        try {
+            studentRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception ex) {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 }
