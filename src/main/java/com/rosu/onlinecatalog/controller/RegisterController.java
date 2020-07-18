@@ -76,7 +76,7 @@ public class RegisterController {
 
             pendingUserRepository.delete(pendingUser);
         }
-        return "security/login";
+        return "redirect:/login";
 
     }
 }
