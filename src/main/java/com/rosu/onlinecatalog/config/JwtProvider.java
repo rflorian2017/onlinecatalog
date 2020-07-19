@@ -6,10 +6,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.Date;
 
+@Component
 public class JwtProvider {
     private String secretKey;
     private long validityInMilliseconds;
