@@ -3,13 +3,22 @@
         <a class="right" th:href="@{/logout}">Logout</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a th:href="@{/}">Home</a></li>
-            <li>
-                <a th:href="@{/allstudents}">
-                    Students
-                </a>
-            </li>
+            <li><a th:href="@{/allstudents}">Students</a></li>
             <li><a th:href="@{/allprofessors}">Professors</a></li>
             <li><a th:href="@{/allschoolgroups}">School groups</a></li>
         </ul>
     </div>
 </nav>
+
+<ul th:fragment="mobile_nav" xmlns:th="http://www.thymeleaf.org" class="sidenav" id="mobile-demo">
+    <li><a th:href="@{/}">Home</a></li>
+    <li><a th:href="@{/allstudents}">Students</a></li>
+    <li><a th:href="@{/allprofessors}">Professors</a></li>
+    <li><a th:href="@{/allschoolgroups}">School groups</a></li>
+</ul>
+
+<script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org" >
+     $(document).ready(function(){
+        $('.sidenav').sidenav();
+     });
+</script>
