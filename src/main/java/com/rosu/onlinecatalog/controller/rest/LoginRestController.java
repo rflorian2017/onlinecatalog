@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/login")
-public class LoginController {
+public class LoginRestController {
 
     @Autowired
     private final AuthenticationManager authenticationManager;
@@ -27,7 +27,7 @@ public class LoginController {
     private DatabaseUserDetailsService databaseUserDetailsService;
 
     @Autowired
-    public LoginController(AuthenticationManager authenticationManager, JwtProvider jwtProvider, DatabaseUserDetailsService databaseUserDetailsService) {
+    public LoginRestController(AuthenticationManager authenticationManager, JwtProvider jwtProvider, DatabaseUserDetailsService databaseUserDetailsService) {
         this.authenticationManager = authenticationManager;
         this.jwtProvider = jwtProvider;
         this.databaseUserDetailsService = databaseUserDetailsService;
